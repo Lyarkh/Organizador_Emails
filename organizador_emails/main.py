@@ -1,6 +1,4 @@
 from google_api.connection import ConnectGoogleAPI
-import os
-import sys
 
 
 class Main:
