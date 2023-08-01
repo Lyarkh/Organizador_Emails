@@ -35,10 +35,13 @@ class ConnectGoogleAPI:
             with open('keys/token.json', 'w') as token:
                 token.write(self.creds.to_json())
 
+    def get_service(self):
+        return build('gmail', 'v1', credentials=self.creds)
+
     def get_labels(self):
         try:
             # Call the Gmail API
-            service = build('gmail', 'v1', credentials=self.creds)
+            service = self.get_service()
             results = service.users().labels().list(userId='me').execute()
             labels = results.get('labels', [])
 
