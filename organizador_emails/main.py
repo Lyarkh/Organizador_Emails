@@ -1,4 +1,4 @@
-from google_api.connection import ConnectGoogleAPI
+from organizador_emails.google_api.connection import ConnectGoogleAPI
 
 
 class Main:
