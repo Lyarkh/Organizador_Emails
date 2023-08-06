@@ -26,6 +26,7 @@ line_length = 79
 
 [tool.taskipy.tasks]
 lint = "blue --check --diff . && isort --check --diff ."
+force_lint_correction = "blue . && isort ."
 
 [build-system]
 requires = ["poetry-core"]
