@@ -1,9 +1,10 @@
 # Arquivo de configs e variáveis de ambiente em yaml.
 google:
-  service: gmail
+  service:
+    name: gmail
+    version: v1
   credentials_file: credentials.json
   token_file: token.json
-
 
 paths:
   - keys: organizador_emails/keys
