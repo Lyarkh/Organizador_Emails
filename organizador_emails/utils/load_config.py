@@ -1,7 +1,8 @@
 import os
 import sys
-
 import yaml
+
+from organizador_emails.models.config import Config
 
 
 class LoadConfig:
@@ -14,8 +15,9 @@ class LoadConfig:
 
     def get_all_configs(self):
         yaml_config = self.open_yaml_file()
+        config_obj = Config(yaml_config)
 
-        return yaml_config
+        return config_obj
 
     def open_yaml_file(self):
         with open('config.yaml', 'r') as file:
