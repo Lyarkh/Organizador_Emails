@@ -1,5 +1,3 @@
-import os
-import sys
 import yaml
 
 from organizador_emails.models.config import Config
@@ -7,11 +5,7 @@ from organizador_emails.models.config import Config
 
 class LoadConfig:
     def __init__(self):
-        self.add_project_path()
         self.get_all_configs()
-
-    def add_project_path(self):
-        sys.path.insert(0, os.getcwd())
 
     def get_all_configs(self):
         yaml_config = self.open_yaml_file()
