@@ -23,4 +23,4 @@ class LoadConfig:
 
 
 if __name__ == '__main__':
-    LoadConfig().run()
+    LoadConfig()
