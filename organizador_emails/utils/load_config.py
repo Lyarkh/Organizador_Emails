@@ -7,11 +7,12 @@ import yaml
 class LoadConfig:
     def __init__(self):
         self.add_project_path()
+        self.get_all_configs()
 
     def add_project_path(self):
         sys.path.insert(0, os.getcwd())
 
-    def run(self):
+    def get_all_configs(self):
         yaml_config = self.open_yaml_file()
 
         return yaml_config
