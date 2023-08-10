@@ -5,8 +5,11 @@ from organizador_emails.models.config import Config
 
 class LoadConfig:
     def __init__(self):
-        self.get_all_configs()
+        self.configs = self.get_all_configs()
 
+    def get_variables(self):
+        return self.configs
+    
     def get_all_configs(self):
         yaml_config = self.open_yaml_file()
         config_obj = Config(yaml_config)
