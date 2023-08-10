@@ -3,8 +3,8 @@ from organizador_emails.google_api.connection import ConnectGoogleAPI
 
 class Main:
     @staticmethod
-    def main():
-        google_api = ConnectGoogleAPI()
+    def main(configs):
+        google_api = ConnectGoogleAPI(configs)
         google_api.get_credentials()
         google_api.get_labels()
 
