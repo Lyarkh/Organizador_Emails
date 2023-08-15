@@ -9,6 +9,11 @@ class Main:
         all_messages = google_api.get_messages_list([], '')
         print(f'Quantidade de mensagens encontradas: {len(all_messages)}')
 
+        import json
+
+        with open('results.json') as file:
+            json.dump(all_messages, file, indent=4)
+
 
 if __name__ == '__main__':
     Main.main()
