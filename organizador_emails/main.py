@@ -6,7 +6,8 @@ class Main:
     def main(configs):
         google_api = ConnectGoogleAPI(configs)
         google_api.get_credentials()
-        google_api.get_messages_list('')
+        all_messages = google_api.get_messages_list([], '')
+        print(f'Quantidade de mensagens encontradas: {len(all_messages)}')
 
 
 if __name__ == '__main__':
