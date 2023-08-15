@@ -6,7 +6,7 @@ class Main:
     def main(configs):
         google_api = ConnectGoogleAPI(configs)
         google_api.get_credentials()
-        google_api.get_labels()
+        google_api.get_messages_list('')
 
 
 if __name__ == '__main__':

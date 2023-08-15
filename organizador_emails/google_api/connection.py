@@ -60,3 +60,8 @@ class ConnectGoogleAPI:
         except HttpError as error:
             # TODO(developer) - Handle errors from gmail API.
             print(f'An error occurred: {error}')
+
+    def get_messages_list(self, page_token):
+        service = self.get_service()
+        messages = service.users().messages().list(userId='me').execute()
+        print(messages)
