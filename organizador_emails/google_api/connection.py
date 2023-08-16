@@ -68,4 +68,4 @@ class ConnectGoogleAPI:
         result = messages['messages']
         new_page_token = messages['nextPageToken']
 
-        return all_results
+        return result, new_page_token
