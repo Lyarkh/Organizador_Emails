@@ -61,16 +61,11 @@ class ConnectGoogleAPI:
             # TODO(developer) - Handle errors from gmail API.
             print(f'An error occurred: {error}')
 
-    def get_messages_list(self, find_results, page_token):
-        all_results = find_results
+    def get_messages_list(self, page_token):
         service = self.get_service()
         messages = service.users().messages().list(userId='me', pageToken=page_token).execute()
 
-        all_results.extend(messages['messages'])
+        result = messages['messages']
         new_page_token = messages['nextPageToken']
-        if new_page_token:
-            print(f'procurando page: {new_page_token}')
-            print(f'total encontrado até o momento: {len(all_results)}')
-            all_results = self.get_messages_list(all_results, new_page_token)
 
         return all_results
