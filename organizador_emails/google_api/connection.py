@@ -63,7 +63,7 @@ class ConnectGoogleAPI:
 
     def get_messages_list(self, page_token):
         service = self.get_service()
-        messages = service.users().messages().list(userId='me', pageToken='16274606114470446270').execute()
+        messages = service.users().messages().list(userId='me', pageToken=page_token).execute()
 
 
         result = messages['messages']
