@@ -21,7 +21,7 @@ class Main:
 
         import json
 
-        with open('results.json') as file:
+        with open('results.json', mode='w') as file:
             json.dump(all_messages, file, indent=4)
 
 
