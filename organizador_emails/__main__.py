@@ -10,4 +10,9 @@ configs = LoadConfig()
 
 from main import Main
 
-Main.main(configs.get_variables)
+all_messages = Main.main(configs.get_variables)
+
+import json
+
+with open('results.json', mode='w') as file:
+    json.dump(all_messages, file, indent=4)
