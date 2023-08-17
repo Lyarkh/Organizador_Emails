@@ -70,3 +70,9 @@ class ConnectGoogleAPI:
         new_page_token = messages.get('nextPageToken', '')
 
         return result, new_page_token
+
+    def get_info_message(self, message_id):
+        service = self.get_service()
+        message = service.users().messages().get(userId='me', id=message_id).execute()
+
+        return message
