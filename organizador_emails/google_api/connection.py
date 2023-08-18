@@ -76,3 +76,9 @@ class ConnectGoogleAPI:
         message = service.users().messages().get(userId='me', id=message_id).execute()
 
         return message
+
+    def get_headers_info(self, message):
+        header_info = message['payload']['headers']
+
+        organization = 'Organization - Not Found'
+        user_from = 'User From - Not Found'
