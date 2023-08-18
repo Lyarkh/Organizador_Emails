@@ -11,11 +11,17 @@ class Main:
         all_messages = []
         page_token = ''
 
+        MAX = 1000
+
         while True:
             find_messages, next_token = google_api.get_messages_list(page_token)
             all_id_messages.extend(find_messages)
             page_token = next_token
             print(f'Quantidade de mensagens encontradas: {len(all_id_messages)}')
+
+            if len(all_id_messages) >= MAX:
+                break
+            
             if not page_token:
                 break
 
