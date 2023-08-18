@@ -74,6 +74,7 @@ class ConnectGoogleAPI:
     def get_info_message(self, message_id):
         service = self.get_service()
         message = service.users().messages().get(userId='me', id=message_id).execute()
+        self.get_headers_info(message)
 
         return message
 
@@ -82,3 +83,11 @@ class ConnectGoogleAPI:
 
         organization = 'Organization - Not Found'
         user_from = 'User From - Not Found'
+
+        for info in header_info:
+            if info['name'] == 'From':
+                user_from = info['value']
+            elif info['name'] == 'Organization':
+                organization = info['value']
+
+        print(f'From: {organization} - Email: {user_from}')
