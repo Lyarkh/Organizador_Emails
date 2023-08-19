@@ -82,12 +82,10 @@ class ConnectGoogleAPI:
         header_info = message['payload']['headers']
 
         organization = 'Organization - Not Found'
-        user_from = 'User From - Not Found'
+        labels =  message['labelIds']
 
         for info in header_info:
             if info['name'] == 'From':
                 user_from = info['value']
-            elif info['name'] == 'Organization':
-                organization = info['value']
 
-        print(f'From: {organization} - Email: {user_from}')
+        print(f'From: {organization} - Labels: {labels}')
