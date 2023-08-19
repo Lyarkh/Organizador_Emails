@@ -97,11 +97,11 @@ class ConnectGoogleAPI:
                 subject = info['value']
 
         print(
-            '------------------'
+            '\n------------------\n'
             f'From: {user_from}\n'
             f'Labels: {labels}\n'
             f'Date: {date}\n'
             f'Subject: {subject}\n'
-            f'Snippet: {message_snippet}'
+            f'Snippet: {message_snippet}\n'
             '------------------'
         )
