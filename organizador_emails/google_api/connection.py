@@ -81,9 +81,10 @@ class ConnectGoogleAPI:
     def get_headers_info(self, message):
         header_info = message['payload']['headers']
 
-        user_from = 'User Send - Not Found'
         labels =  message['labelIds']
         message_snippet = message['snippet']
+
+        user_from = 'User Send - Not Found'
         date = 'Date - Not Found'
         subject = 'Subject - Not Found'
 
@@ -95,4 +96,12 @@ class ConnectGoogleAPI:
             if info['name'] == 'Subject':
                 subject = info['value']
 
-        print(f'From: {user_from} - Labels: {labels}')
+        print(
+            '------------------'
+            f'From: {user_from}\n'
+            f'Labels: {labels}\n'
+            f'Date: {date}\n'
+            f'Subject: {subject}\n'
+            f'Snippet: {message_snippet}'
+            '------------------'
+        )
