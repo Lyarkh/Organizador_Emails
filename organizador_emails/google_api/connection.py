@@ -6,6 +6,9 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+from organizador_emails.utils.date_parser import DateParser
+
+
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
 
@@ -92,7 +95,8 @@ class ConnectGoogleAPI:
             if info['name'] == 'From':
                 user_from = info['value']
             if info['name'] == 'Date':
-                date = info['value']
+                date_parser = DateParser(info['value'])
+                date = date_parser.date
             if info['name'] == 'Subject':
                 subject = info['value']
 
