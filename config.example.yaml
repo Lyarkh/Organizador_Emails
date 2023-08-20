@@ -1,4 +1,8 @@
 # Arquivo de configs e variáveis de ambiente em yaml.
+
+vars:
+  max_messages: 1000
+  limit_date: true
 google:
   service:
     name: gmail
