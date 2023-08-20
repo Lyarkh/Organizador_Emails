@@ -11,5 +11,5 @@ google:
   token_file: token.json
 
 paths:
-  - keys: organizador_emails/keys
-  - config_file: ./config.yaml
+  keys: organizador_emails/keys
+  config_file: ./config.yaml
