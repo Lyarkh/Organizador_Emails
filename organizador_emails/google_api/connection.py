@@ -44,7 +44,11 @@ class ConnectGoogleAPI:
                 token.write(self.creds.to_json())
 
     def get_service(self):
-        return build(self.configs.google.service.name, self.configs.google.service.version, credentials=self.creds)
+        return build(
+            self.configs.google.service.name,
+            self.configs.google.service.version,
+            credentials=self.creds,
+        )
 
     def get_labels(self):
         try:
@@ -66,8 +70,12 @@ class ConnectGoogleAPI:
 
     def get_messages_list(self, page_token):
         service = self.get_service()
-        messages = service.users().messages().list(userId='me', pageToken=page_token).execute()
-
+        messages = (
+            service.users()
+            .messages()
+            .list(userId='me', pageToken=page_token)
+            .execute()
+        )
 
         result = messages['messages']
         new_page_token = messages.get('nextPageToken', '')
@@ -76,7 +84,12 @@ class ConnectGoogleAPI:
 
     def get_info_message(self, message_id):
         service = self.get_service()
-        message = service.users().messages().get(userId='me', id=message_id).execute()
+        message = (
+            service.users()
+            .messages()
+            .get(userId='me', id=message_id)
+            .execute()
+        )
         self.get_headers_info(message)
 
         return message
@@ -84,7 +97,7 @@ class ConnectGoogleAPI:
     def get_headers_info(self, message):
         header_info = message['payload']['headers']
 
-        labels =  message['labelIds']
+        labels = message['labelIds']
         message_snippet = message['snippet']
 
         user_from = 'User Send - Not Found'
