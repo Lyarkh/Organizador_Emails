@@ -8,7 +8,6 @@ from googleapiclient.errors import HttpError
 
 from organizador_emails.utils.date_parser import DateParser
 
-
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
 
