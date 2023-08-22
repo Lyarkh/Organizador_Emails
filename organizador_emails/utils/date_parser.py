@@ -8,7 +8,9 @@ class DateParser:
     def parse(self):
         # Example of the format -> 'Thu, 3 Aug 2023 19:18:55 +0000 (UTC)'
         print(self.date_string)
-        temp_date = self.date_string.split(', ')[1]
+        temp_date = self.date_string
+        if ',' in temp_date:
+            temp_date = self.date_string.split(', ')[1]
 
         flag_offset = '+'
         if '-' in temp_date:
