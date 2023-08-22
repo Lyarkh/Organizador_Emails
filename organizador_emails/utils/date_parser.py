@@ -7,8 +7,12 @@ class DateParser:
 
     def parse(self):
         # Example of the format -> 'Thu, 3 Aug 2023 19:18:55 +0000 (UTC)'
-        print(self.date_string)
         temp_date = self.date_string
+
+        clean_date = self.clean_the_date_string(temp_date)
+        self.create_date_object(clean_date)
+
+    def clean_the_date_string(self):
         if ',' in temp_date:
             temp_date = self.date_string.split(', ')[1]
 
@@ -16,11 +20,10 @@ class DateParser:
         if '-' in temp_date:
             flag_offset = '-'
 
-        print(temp_date)
         temp_date_without_offset = temp_date.split(flag_offset)[0].strip()
-        print(temp_date_without_offset)
+        return temp_date_without_offset
 
+    def create_date_obj(self, str_date_to_convert):
         str_format_date = '%d %b %Y %H:%M:%S'
-
-        date = datetime.strptime(temp_date_without_offset, str_format_date)
+        date = datetime.strptime(str_date_to_convert, str_format_date)
         setattr(self, 'date', date)
