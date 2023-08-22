@@ -13,7 +13,7 @@ class DateParser:
         clean_date = self.clean_the_date_string(temp_date)
         self.create_date_object(clean_date)
 
-    def clean_the_date_string(self):
+    def clean_the_date_string(self, date_str_to_clean):
         if ',' in temp_date:
             temp_date = self.date_string.split(', ')[1]
 
