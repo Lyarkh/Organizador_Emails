@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class DateParser:
     def __init__(self, date_string):
         self.date_string = date_string
