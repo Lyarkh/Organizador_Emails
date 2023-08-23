@@ -1,4 +1,5 @@
 import pytest
+
 from organizador_emails.models.config import Config
 
 # Test data

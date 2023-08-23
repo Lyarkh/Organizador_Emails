@@ -1,5 +1,6 @@
-import pytest
 from datetime import datetime
+
+import pytest
 
 from organizador_emails.utils.date_parser import DateParser
 
