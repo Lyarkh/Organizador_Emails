@@ -20,7 +20,9 @@ class DateParser:
         if '-' in date_str_to_clean:
             flag_offset = '-'
 
-        temp_date_without_offset = date_str_to_clean.split(flag_offset)[0].strip()
+        temp_date_without_offset = date_str_to_clean.split(flag_offset)[
+            0
+        ].strip()
         return temp_date_without_offset
 
     def create_date_object(self, str_date_to_convert):
