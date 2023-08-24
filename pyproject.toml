@@ -30,6 +30,7 @@ line_length = 79
 [tool.taskipy.tasks]
 lint = "blue --check --diff . && isort --check --diff ."
 force_lint = "blue . && isort ."
+test = "pytest -s -x -vv"
 
 [build-system]
 requires = ["poetry-core"]
