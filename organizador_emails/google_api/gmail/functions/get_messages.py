@@ -2,8 +2,8 @@ from organizador_emails.utils.date_parser import DateParser
 
 
 class Getmessages:
-    def get_messages_list(self, page_token):
-        service = self.get_service()
+    def get_messages_list(self, service, page_token):
+        service = service
         messages = (
             service.users()
             .messages()
@@ -16,8 +16,8 @@ class Getmessages:
 
         return result, new_page_token
 
-    def get_info_message(self, message_id):
-        service = self.get_service()
+    def get_info_message(self, service, message_id):
+        service = service
         message = (
             service.users()
             .messages()
@@ -43,6 +43,7 @@ class Getmessages:
                 user_from = info['value']
             if info['name'] == 'Date':
                 date_parser = DateParser(info['value'])
+                date_parser.parse()
                 date = date_parser.date
             if info['name'] == 'Subject':
                 subject = info['value']

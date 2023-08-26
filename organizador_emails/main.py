@@ -1,11 +1,10 @@
-from organizador_emails.google_api.api_connection import ConnectGoogleAPI
-
+from organizador_emails.google_api.service_interface import ServiceInterface
+from organizador_emails.google_api.gmail.functions.get_messages import Getmessages
 
 class Main:
     @staticmethod
     def main(configs):
-        google_api = ConnectGoogleAPI(configs)
-        google_api.get_credentials()
+        google_api = ServiceInterface(configs).get_email_service()
 
         all_id_messages = []
         all_messages = []
@@ -14,9 +13,7 @@ class Main:
         MAX = 1000
 
         while True:
-            find_messages, next_token = google_api.get_messages_list(
-                page_token
-            )
+            find_messages, next_token = Getmessages().get_messages_list(google_api, page_token)
             all_id_messages.extend(find_messages)
             page_token = next_token
             print(
@@ -31,7 +28,7 @@ class Main:
 
         for message in all_id_messages:
             print(f"Buscando info da message com id: {message['id']}")
-            message_info = google_api.get_info_message(message['id'])
+            message_info = Getmessages().get_info_message(google_api, message['id'])
             all_messages.append(message_info)
 
         return all_messages
