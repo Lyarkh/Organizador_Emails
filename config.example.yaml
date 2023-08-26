@@ -2,13 +2,15 @@
 
 vars:
   max_messages: 1000
-  limit_date: true
 google:
-  service:
-    name: gmail
-    version: v1
-  credentials_file: credentials.json
-  token_file: token.json
+  auth:
+    credentials_file: credentials.json
+    token_file: token.json
+  services:
+    gmail:
+      name: gmail
+      version: v1
+
 
 paths:
   keys: organizador_emails/keys
