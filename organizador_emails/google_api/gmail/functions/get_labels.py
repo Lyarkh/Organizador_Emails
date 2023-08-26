@@ -1,7 +1,5 @@
 from googleapiclient.errors import HttpError
 
-from organizador_emails.google_api.service_interface import ServiceInterface
-
 
 class GetLabels:
     def __init__(self, service):
