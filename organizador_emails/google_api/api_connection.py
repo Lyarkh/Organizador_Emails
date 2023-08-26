@@ -5,8 +5,6 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 
-from organizador_emails.utils.date_parser import DateParser
-
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
 
@@ -17,12 +15,14 @@ class APIConnection:
 
     def get_credentials(self):
         path_keys = self.configs.paths.keys
-        token_path = self.configs.google.token_file
-        credentials_path = self.configs.google.credentials_file
+        token_path = self.configs.google.auth.token_file
+        credentials_path = self.configs.google.auth.credentials_file
 
-        if os.path.exists(f'{path_keys}/{token_path}'):
+        complete_token_path =f'{path_keys}/{token_path}'
+
+        if os.path.exists(complete_token_path):
             self.creds = Credentials.from_authorized_user_file(
-                f'{path_keys}/{token_path}', SCOPES
+                complete_token_path, SCOPES
             )
 
         if not self.creds or not self.creds.valid:
@@ -34,7 +34,7 @@ class APIConnection:
                 )
                 self.creds = flow.run_local_server(port=0)
 
-            with open(f'{path_keys}/{token_path}', 'w') as token:
+            with open(complete_token_path, 'w') as token:
                 token.write(self.creds.to_json())
 
         return self.creds
