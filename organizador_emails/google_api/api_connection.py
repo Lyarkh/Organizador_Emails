@@ -4,7 +4,6 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 
-
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
 
@@ -18,7 +17,7 @@ class APIConnection:
         token_path = self.configs.google.auth.token_file
         credentials_path = self.configs.google.auth.credentials_file
 
-        complete_token_path =f'{path_keys}/{token_path}'
+        complete_token_path = f'{path_keys}/{token_path}'
 
         if os.path.exists(complete_token_path):
             self.creds = Credentials.from_authorized_user_file(
