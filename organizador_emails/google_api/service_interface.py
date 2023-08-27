@@ -10,7 +10,7 @@ class ServiceInterface:
 
     def get_email_service(self):
         return build(
-                self.configs.google.services.gmail.name,
-                self.configs.google.services.gmail.version,
-                credentials=self.creds,
-            )
+            self.configs.google.services.gmail.name,
+            self.configs.google.services.gmail.version,
+            credentials=self.creds,
+        )
