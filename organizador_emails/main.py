@@ -7,7 +7,7 @@ from organizador_emails.google_api.service_interface import ServiceInterface
 class Main:
     @staticmethod
     def main(configs):
-        google_api = ServiceInterface.get_email_service(configs)
+        gmail_service = ServiceInterface.get_email_service(configs)
 
         all_id_messages = []
         all_messages = []
@@ -17,7 +17,7 @@ class Main:
 
         while True:
             find_messages, next_token = Getmessages().get_messages_list(
-                google_api, page_token
+                gmail_service.build, page_token
             )
             all_id_messages.extend(find_messages)
             page_token = next_token
@@ -34,7 +34,7 @@ class Main:
         for message in all_id_messages:
             print(f"Buscando info da message com id: {message['id']}")
             message_info = Getmessages().get_info_message(
-                google_api, message['id']
+                gmail_service.build, message['id']
             )
             all_messages.append(message_info)
 
