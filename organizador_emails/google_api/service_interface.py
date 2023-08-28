@@ -1,5 +1,3 @@
-from googleapiclient.discovery import build
-
 from organizador_emails.google_api.api_connection import APIConnection
 
 
