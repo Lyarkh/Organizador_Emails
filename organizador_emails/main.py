@@ -7,7 +7,7 @@ from organizador_emails.google_api.service_interface import ServiceInterface
 class Main:
     @staticmethod
     def main(configs):
-        google_api = ServiceInterface(configs).get_email_service()
+        google_api = ServiceInterface.get_email_service(configs)
 
         all_id_messages = []
         all_messages = []
