@@ -9,7 +9,7 @@ class GmailService:
         self.creds = APIConnection(self.configs).get_credentials()
 
     @property
-    def build(self):
+    def get_build(self):
         return build(
             self.configs.google.services.gmail.name,
             self.configs.google.services.gmail.version,
