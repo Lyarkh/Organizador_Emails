@@ -5,8 +5,9 @@ from googleapiclient.discovery import build
 class GmailService:
     def __init__(self, configs):
         self.configs = configs
-        self.creds = APIConnection(configs).get_credentials()
+        self.creds = APIConnection(self.configs).get_credentials()
 
+    @property
     def build(self):
         return build(
             self.configs.google.services.gmail.name,
