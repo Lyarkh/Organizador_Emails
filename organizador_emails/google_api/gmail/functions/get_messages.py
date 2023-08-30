@@ -1,4 +1,5 @@
 from organizador_emails.utils.date_parser import DateParser
+from organizador_emails.models.response_message import ResponseMessage
 
 
 class Getmessages:
@@ -48,12 +49,11 @@ class Getmessages:
             if info['name'] == 'Subject':
                 subject = info['value']
 
-        print(
-            '\n------------------\n'
-            f'From: {user_from}\n'
-            f'Labels: {labels}\n'
-            f'Date: {date}\n'
-            f'Subject: {subject}\n'
-            f'Snippet: {message_snippet}\n'
-            '------------------'
+        response = ResponseMessage (
+            user_from,
+            labels,
+            date,
+            subject,
+            message_snippet
         )
+        print(response)
