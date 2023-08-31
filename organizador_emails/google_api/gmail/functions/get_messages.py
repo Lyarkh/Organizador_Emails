@@ -50,10 +50,10 @@ class Getmessages:
                 subject = info['value']
 
         response = ResponseMessage (
-            user_from,
-            labels,
-            date,
-            subject,
-            message_snippet
+            user_from=user_from,
+            labels=labels,
+            date=date,
+            subject=subject,
+            snippet=message_snippet
         )
         print(response)
