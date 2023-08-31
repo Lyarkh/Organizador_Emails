@@ -1,9 +1,8 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 from datetime import datetime
 
 
-@dataclass
-class ResponseMessage:
+class ResponseMessage(BaseModel):
     user_from: str
     labels: list[str]
     date: datetime
