@@ -11,9 +11,6 @@ from organizador_emails.google_api.service_interface import ServiceInterface
 
 configs = LoadConfig()
 
-from main import Main
-
-
 gmail_service = ServiceInterface.get_email_service(configs)
 
 all_id_messages = []
