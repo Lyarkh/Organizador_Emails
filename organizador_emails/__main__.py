@@ -17,7 +17,7 @@ all_id_messages = []
 all_messages = []
 page_token = ''
 
-MAX = 1000
+MAX = configs.var.max_messages
 
 while True:
     find_messages, next_token = Getmessages().get_messages_list(
