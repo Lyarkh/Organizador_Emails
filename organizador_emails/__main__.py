@@ -4,12 +4,14 @@ import sys
 sys.path.insert(0, os.getcwd())
 
 from organizador_emails.utils.load_config import LoadConfig
+
+configs = LoadConfig().get_variables
+
 from organizador_emails.google_api.gmail.functions.get_messages import (
     Getmessages,
 )
 from organizador_emails.google_api.service_interface import ServiceInterface
 
-configs = LoadConfig()
 
 gmail_service = ServiceInterface.get_email_service(configs)
 
@@ -17,7 +19,7 @@ all_id_messages = []
 all_messages = []
 page_token = ''
 
-MAX = configs.var.max_messages
+MAX = configs.vars.max_messages
 
 while True:
     find_messages, next_token = Getmessages().get_messages_list(
