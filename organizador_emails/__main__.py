@@ -12,7 +12,6 @@ from organizador_emails.google_api.gmail.functions.get_messages import (
 )
 from organizador_emails.google_api.service_interface import ServiceInterface
 
-
 gmail_service = ServiceInterface.get_email_service(configs)
 
 all_id_messages = []
@@ -27,9 +26,7 @@ while True:
     )
     all_id_messages.extend(find_messages)
     page_token = next_token
-    print(
-        f'Quantidade de mensagens encontradas: {len(all_id_messages)}'
-    )
+    print(f'Quantidade de mensagens encontradas: {len(all_id_messages)}')
 
     if len(all_id_messages) >= MAX:
         break
