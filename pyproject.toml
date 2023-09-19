@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "organizador-emails"
 version = "0.1.0"
-description = ""
+description = "repositório que conterá uma CLI para organizar, verificar e manipular emails do google por meio da api"
 authors = ["Lyarkh <lcemanuel.emanuel@gmail.com>"]
 license = "MIT"
 readme = "README.md"
