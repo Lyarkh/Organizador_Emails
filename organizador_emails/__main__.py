@@ -5,7 +5,14 @@ sys.path.insert(0, os.getcwd())
 
 from organizador_emails.utils.load_config import LoadConfig
 
+
 configs = LoadConfig().get_variables
+
+from organizador_emails.models.db.emails import Base
+from organizador_emails.db.connect import engine
+
+Base.metadata.create_all(bind=engine)
+
 
 from organizador_emails.google_api.gmail.functions.get_messages import (
     Getmessages,
