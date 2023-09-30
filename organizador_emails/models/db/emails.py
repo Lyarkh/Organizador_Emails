@@ -15,3 +15,9 @@ class Emails(Base):
     subject: Mapped[str] = mapped_column(String(200))
     user_from: Mapped[str] = mapped_column(String(200))
     date: Mapped[datetime] = mapped_column(datetime)
+
+
+if __name__ == '__main__':
+    from organizador_emails.db.connect import engine
+
+    Base.metadata.create_all(bind=engine)
