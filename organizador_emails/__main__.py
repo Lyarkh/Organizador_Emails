@@ -8,10 +8,11 @@ from organizador_emails.utils.load_config import LoadConfig
 
 configs = LoadConfig().get_variables
 
-from organizador_emails.models.db.emails import Base
-from organizador_emails.db.connect import engine
+def create_table():
+    from organizador_emails.models.db.emails import Base
+    from organizador_emails.db.connect import engine
 
-Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
 
 
 def exec_find_emails():
