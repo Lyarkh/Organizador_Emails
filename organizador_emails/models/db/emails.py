@@ -14,8 +14,7 @@ class Emails(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     subject: Mapped[str] = mapped_column(String(200))
     user_from: Mapped[str] = mapped_column(String(200))
-    date: Mapped[datetime] = mapped_column(datetime)
-
+    date: Mapped[datetime]
 
 if __name__ == '__main__':
     from organizador_emails.db.connect import engine
