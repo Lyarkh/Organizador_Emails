@@ -16,6 +16,7 @@ keys/
 config.yaml
 .vscode/
 results.json
+db_emails.db
 ----------------
 
 # Distribution / packaging
