@@ -5,12 +5,12 @@ sys.path.insert(0, os.getcwd())
 
 from organizador_emails.utils.load_config import LoadConfig
 
-
 configs = LoadConfig().get_variables
 
+
 def create_table():
-    from organizador_emails.models.db.emails import Base
     from organizador_emails.db.connect import engine
+    from organizador_emails.models.db.emails import Base
 
     Base.metadata.create_all(bind=engine)
 
@@ -19,7 +19,9 @@ def exec_find_emails():
     from organizador_emails.google_api.gmail.functions.get_messages import (
         Getmessages,
     )
-    from organizador_emails.google_api.service_interface import ServiceInterface
+    from organizador_emails.google_api.service_interface import (
+        ServiceInterface,
+    )
 
     gmail_service = ServiceInterface.get_email_service(configs)
 
@@ -49,7 +51,6 @@ def exec_find_emails():
             gmail_service.build, message['id']
         )
         all_messages.append(message_info)
-
 
     import json
 
